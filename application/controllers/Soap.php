@@ -74,7 +74,7 @@ class soap extends CI_Controller {
       $args['profession_number'] = $_GET['profession_number'];  
     }
 
-    $this->load->library('WebService');
+        $this->load->library('WebService');
 
         $webservice_config = array(
             'server' => 'test'
@@ -92,7 +92,7 @@ class soap extends CI_Controller {
 
         $WebService->find_registrations_test($account_info);
 
-        var_dump($WebService->messagestatus);
+        var_dump($WebService->AuditDetails);
 
     
   }

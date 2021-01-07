@@ -32,7 +32,6 @@ Class WebService {
         $this->request_ip = $ci->input->ip_address();
         self::initialize($config);
     }
-
     /**
      * Initialize WebService with given $config
      */
@@ -99,11 +98,11 @@ Class WebService {
             $result = $this->proxy->__soapCall('FindRegistrations', array($parameters));
 
 
-            $this->messagestatus =  $result;
-            
+            $this->AuditDetails =  $result->AuditDetails;
+
             // $this->data = $result;
 
-            // $this->messagecount = $result->AuditDetails->ServiceMessagesCount;
+            $this->ProfessionNumberReplay = $result->ProfessionNumberReplay;
 
 
             // if($this->messagecount){
