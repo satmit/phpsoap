@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Soap extends CI_Controller {
+class soap extends CI_Controller {
+
 
 
 	public function index()
@@ -67,4 +68,32 @@ class Soap extends CI_Controller {
 
 	}
 
+  public function get_registrations(){
+
+    if($_GET['profession_number']){
+      $args['profession_number'] = $_GET['profession_number'];  
+    }
+
+    $this->load->library('WebService');
+
+        $webservice_config = array(
+            'server' => 'test'
+        );
+
+        $WebService = new WebService($webservice_config);
+        //NMW0001450867
+
+
+        $account_info = array(
+            'ProfessionNumber' => $args['profession_number']
+        );
+
+        // var_dump($account_info);
+
+        $WebService->find_registrations_test($account_info);
+
+        var_dump($WebService->messagestatus);
+
+    
+  }
 }

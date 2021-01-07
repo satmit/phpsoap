@@ -27,7 +27,7 @@ Class WebService {
 
     );
 
-    public function WebService( $config = array() ){
+    public function __construct( $config = array() ){ //WebService
         $ci =& get_instance();
         $this->request_ip = $ci->input->ip_address();
         self::initialize($config);
@@ -100,6 +100,7 @@ Class WebService {
 
 
             $this->messagestatus =  $result;
+            
             // $this->data = $result;
 
             // $this->messagecount = $result->AuditDetails->ServiceMessagesCount;
@@ -202,7 +203,7 @@ Class WebService {
     }
 
     public function __destruct(){
-        unset($this);
+        // unset($this);
     }
 
     public static function Exception($e, $subject, $eData) {
